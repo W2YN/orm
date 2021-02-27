@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/test', function () {
+//    $user = request()->user();
+//    $user->profile()->firstOrCreate(['user_id'=> $user->id],['phone'=> 'xxx']);
+//    dd($user->profile);
+
+     $profile = \App\Profile::find(3);
+     if(!$profile->isEmpty){
+         dd($profile->user);
+     }
+
+
+
+});
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
